@@ -1,0 +1,212 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Quality Assurance (QA) — A Practical Guide</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg:#0f1724; /* deep navy */
+      --card:#0b1220;
+      --muted:#9aa4b2;
+      --accent:#7c3aed;
+      --glass: rgba(255,255,255,0.03);
+      --glass-2: rgba(255,255,255,0.02);
+      --radius: 14px;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      font-family:Inter,system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial;
+      background: linear-gradient(180deg,var(--bg) 0%, #071322 100%);
+      color:#e6eef6;
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      line-height:1.6;
+      padding:32px;
+    }
+
+    .container{max-width:1100px;margin:0 auto}
+
+    header{
+      display:flex;align-items:center;justify-content:space-between;margin-bottom:28px;
+    }
+    .brand{display:flex;gap:14px;align-items:center}
+    .logo{
+      width:56px;height:56px;border-radius:12px;background:linear-gradient(135deg,var(--accent),#4f46e5);display:flex;align-items:center;justify-content:center;font-weight:700;color:white;font-size:20px;box-shadow:0 6px 20px rgba(124,58,237,0.18)
+    }
+    h1{font-size:22px;margin:0}
+    .sub{color:var(--muted);font-size:13px}
+
+    main{display:grid;grid-template-columns:1fr 340px;gap:28px}
+
+    .card{background:linear-gradient(180deg,var(--card), rgba(15,23,36,0.6));border-radius:var(--radius);padding:22px;box-shadow:0 8px 30px rgba(2,6,23,0.6);}
+
+    /* article */
+    article .lead{color:var(--muted);margin-bottom:14px}
+    article h2{margin-top:8px;margin-bottom:14px}
+    article p{margin:0 0 12px}
+
+    .meta{display:flex;gap:12px;align-items:center;color:var(--muted);font-size:13px;margin-bottom:18px}
+    .tag{background:var(--glass);padding:6px 10px;border-radius:999px;font-weight:600;color:#dbeafe}
+
+    .section-list{display:grid;gap:12px}
+    .step{background:var(--glass-2);padding:12px;border-radius:12px;border:1px solid rgba(255,255,255,0.02)}
+    .step h3{margin:0 0 6px;font-size:15px}
+    .step p{margin:0;color:var(--muted);font-size:14px}
+
+    /* sidebar */
+    aside .widget{margin-bottom:16px}
+    .small{font-size:13px;color:var(--muted)}
+
+    .tools-list{display:flex;flex-wrap:wrap;gap:10px}
+    .chip{background:linear-gradient(90deg,rgba(255,255,255,0.03),rgba(255,255,255,0.01));padding:8px 10px;border-radius:10px;font-weight:600;border:1px solid rgba(255,255,255,0.03)}
+
+    pre{background:#071027;padding:12px;border-radius:10px;overflow:auto;font-family:ui-monospace, SFMono-Regular, Menlo, Monaco, "Roboto Mono",monospace;font-size:13px}
+
+    footer{margin-top:26px;color:var(--muted);font-size:13px;text-align:center}
+
+    /* responsive */
+    @media (max-width:900px){
+      main{grid-template-columns:1fr;}
+      body{padding:18px}
+      .logo{width:48px;height:48px}
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="brand">
+        <div class="logo">QA</div>
+        <div>
+          <h1>Quality Assurance (QA): Practical Guide for Testers & SDETs</h1>
+          <div class="sub">Fundamentals, tools, checklists, and career tips</div>
+        </div>
+      </div>
+      <div class="tag">Updated: Static copy</div>
+    </header>
+
+    <!-- About Section -->
+    <section id="about" class="py-16" style="background:#1f2937;border-radius:var(--radius);padding:24px;margin-bottom:28px;">
+      <div class="max-w-4xl mx-auto text-center">
+        <h2 class="text-3xl font-bold mb-6" style="font-size:24px;margin-bottom:16px;">About Me</h2>
+        <p style="color:#e6eef6;margin-bottom:12px;line-height:1.6;">
+          I’m <strong>Utam Kumar</strong>, a QA Engineer with over 8 years of experience in both 
+          <strong>manual and automation testing</strong>. I specialize in building robust frameworks 
+          using <strong>Cypress, Jest, and GraphQL</strong> for web and API automation. 
+          Over the years, I’ve contributed to diverse domains including <strong>Banking, CRM, Sports Tech, 
+          and Energy</strong>, where I designed automation frameworks, optimized CI/CD pipelines with 
+          Jenkins & Git, and ensured seamless execution on cloud platforms like <strong>GCP and AWS</strong>.
+        </p>
+        <p style="color:#e6eef6;margin-bottom:12px;line-height:1.6;">
+          I have a strong background in <strong>functional, regression, and compatibility testing</strong> 
+          and actively collaborate in Agile teams, participating in sprint planning, stand-ups, and QA showcases. 
+          My goal is to deliver high-quality, scalable, and reliable software solutions that enhance customer experience.
+        </p>
+        <p style="color:#e6eef6;margin-bottom:0;line-height:1.6;">
+          Beyond testing, I enjoy <strong>football, chess, and continuous learning</strong> to stay ahead in 
+          the ever-evolving tech landscape.
+        </p>
+      </div>
+    </section>
+
+    <main>
+      <div class="card">
+        <article>
+          <div class="meta">
+            <div>By <strong>Uttam Kumar</strong></div>
+            <div>•</div>
+            <div>Reading: ~7 min</div>
+          </div>
+
+          <p class="lead">Quality assurance (QA) makes sure software does what it should — reliably, securely, and pleasantly. This guide covers core concepts, practical workflows, tools, and a ready-to-use checklist you can copy into your projects.</p>
+
+          <h2>1. What is QA? — Short version</h2>
+          <p>QA is the set of practices and processes that ensure a product meets requirements and user expectations. QA includes manual testing, automation, performance testing, accessibility checks, security testing, and release verification.</p>
+
+          <h2>2. Types of testing</h2>
+          <div class="section-list">
+            <div class="step">
+              <h3>Manual Testing</h3>
+              <p>Exploratory and scripted checks performed by testers to validate workflows and edge-cases a machine might miss.</p>
+            </div>
+            <div class="step">
+              <h3>Automated Testing</h3>
+              <p>Unit, integration, and end-to-end tests written in code. Automation speeds up regression testing and frees time for exploratory testing.</p>
+            </div>
+            <div class="step">
+              <h3>Performance & Load</h3>
+              <p>Measure speed, latency, throughput and behaviour under concurrent users. Tools help find bottlenecks early.</p>
+            </div>
+            <div class="step">
+              <h3>Security & Accessibility</h3>
+              <p>Security testing (static analysis, dependency scans) and accessibility checks ensure the product is safe and usable for everyone.</p>
+            </div>
+          </div>
+
+          <h2>3. Recommended tools</h2>
+          <p class="small">A pragmatic toolset — pick the ones that fit your stack and team:</p>
+          <div class="tools-list" style="margin-top:10px;margin-bottom:14px">
+            <div class="chip">Selenium / Playwright</div>
+            <div class="chip">JUnit / TestNG</div>
+            <div class="chip">Cypress</div>
+            <div class="chip">Postman / REST-assured</div>
+            <div class="chip">Jenkins / GitHub Actions</div>
+            <div class="chip">JMeter / k6</div>
+            <div class="chip">OWASP Dependency-Check</div>
+            <div class="chip">axe-core (accessibility)</div>
+          </div>
+
+          <h2>4. Example: Quick automation checklist</h2>
+          <pre>&lt;!-- Copy this checklist to start automating a feature --&gt;
+1. Identify business-critical flows (login, payments, checkout).
+2. Write unit tests for core logic.
+3. Add integration tests for service interactions.
+4. Add an end-to-end test for the happy path.
+5. Add negative tests for important edge-cases.
+6. Run tests on CI for every PR.
+7. Keep flaky tests isolated and triaged.
+8. Measure test runtime — split or parallelize when needed.
+</pre>
+
+          <h2>5. Best practices</h2>
+          <ul>
+            <li>Shift-left: involve QA early in the design and planning phases.</li>
+            <li>Make tests deterministic and fast.</li>
+            <li>Prefer small, focused tests to one huge test that does everything.</li>
+            <li>Keep test data and environments reproducible (use containers or dedicated test accounts).</li>
+            <li>Track flakiness and treat it as debt — fix or quarantine flaky tests quickly.</li>
+          </ul>
+
+          <h2>6. Career tips for QA engineers & SDETs</h2>
+          <p>Grow by building both technical and communication skills. Learn test automation frameworks, APIs, CI/CD, and basics of observability. Write clear bug reports and advocate for quality in planning meetings.</p>
+
+          <h2>7. Closing thoughts</h2>
+          <p>Great QA is invisible to users — it results in a product that feels reliable and pleasant. Start small: automate the most critical flows, measure impact, and gradually expand coverage.</p>
+
+          <footer>Enjoyed this guide? Copy the checklist and adapt it to your project. Happy testing!</footer>
+        </article>
+      </div>
+
+      <aside>
+        <div class="card widget">
+          <h3>QA Quick Links</h3>
+          <div class="small" style="margin-top:8px">Use these as a starting point for deeper study.</div>
+          <ul class="small" style="margin-top:12px">
+            <li>Automation frameworks: Playwright, Cypress, Selenium</li>
+            <li>CI: Jenkins, GitHub Actions</li>
+            <li>Performance: JMeter, k6</li>
+            <li>Security: OWASP guides & dependency scans</li>
+          </ul>
+        </div>
+
+        <div class="card widget">
+          <h3>Starter checklist</h3>
+          <div class="small" style="margin-top:8px">
+            1. Smoke tests on every deployment<br>
+            2. Run unit tests on pull requests<br>
+            3. Nightly regression run for slow suites
+          </div>
